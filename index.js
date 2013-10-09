@@ -180,7 +180,8 @@ function plugin (racer, options) {
       function (collection, docName, opData, snapshotData, connectSession) {
         if (! collectionMatchesPattern(collection, pattern)) return;
         var newDoc = opData.create.data;
-        return validate(docName, newDoc, connectSession);
+        var origin = opData.origin;
+        return validate(docName, newDoc, connectSession, origin );
       }
     );
   };
